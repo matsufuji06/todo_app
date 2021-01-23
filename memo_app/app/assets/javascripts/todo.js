@@ -12,5 +12,13 @@ $(function() {
       },
       dataType: 'json'
     })
+    .done(function(data) {
+      var todoList = $('<li class="todo">').append(data.content);
+      $('.todos').append(todoList);
+      $('.js-form__text-field').val('');
+    })
+    .fail(function() {
+      alert('error');
+    });
   });
 });
